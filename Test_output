@@ -1,0 +1,123 @@
+Test Results using loadtest
+
+1) load test against it for 20 seconds with concurrency 10
+
+SHARMDEY-M-410G:node_modules sharmdey$ loadtest http://localhost:5000/job/d75277cdffef995a46ae59bdaef1db86 -t 20 -c 10
+[Sun Jun 18 2017 16:04:50 GMT-0700 (PDT)] INFO Requests: 0, requests per second: 0, mean latency: 0 ms
+[Sun Jun 18 2017 16:04:55 GMT-0700 (PDT)] INFO Requests: 2871, requests per second: 574, mean latency: 17.4 ms
+[Sun Jun 18 2017 16:05:00 GMT-0700 (PDT)] INFO Requests: 5425, requests per second: 511, mean latency: 19.5 ms
+[Sun Jun 18 2017 16:05:05 GMT-0700 (PDT)] INFO Requests: 7894, requests per second: 494, mean latency: 20.2 ms
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Target URL:          http://localhost:5000/job/d75277cdffef995a46ae59bdaef1db86
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Max time (s):        20
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Concurrency level:   10
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Agent:               none
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Completed requests:  10249
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Total errors:        0
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Total time:          20.000925338000002 s
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Requests per second: 512
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Mean latency:        19.5 ms
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO Percentage of the requests served within a certain time
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO   50%      18 ms
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO   90%      23 ms
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO   95%      26 ms
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO   99%      31 ms
+[Sun Jun 18 2017 16:05:10 GMT-0700 (PDT)] INFO  100%      254 ms (longest request
+
+2) load test with with fixed rate of request per second
+
+SHARMDEY-M-410G:node_modules sharmdey$ loadtest http://localhost:5000/job/d75277cdffef995a46ae59bdaef1db86 -t 20 -c 10 --rps 1000
+[Sun Jun 18 2017 23:02:03 GMT-0700 (PDT)] INFO Requests: 0, requests per second: 0, mean latency: 0 ms
+[Sun Jun 18 2017 23:02:08 GMT-0700 (PDT)] INFO Requests: 1339, requests per second: 268, mean latency: 1798 ms
+[Sun Jun 18 2017 23:02:13 GMT-0700 (PDT)] INFO Requests: 2354, requests per second: 203, mean latency: 5462.2 ms
+[Sun Jun 18 2017 23:02:18 GMT-0700 (PDT)] INFO Requests: 3869, requests per second: 293, mean latency: 8657.6 ms
+[Sun Jun 18 2017 23:02:18 GMT-0700 (PDT)] INFO Errors: 239, accumulated errors: 239, 6.2% of total requests
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Requests: 12821, requests per second: 1853, mean latency: 5320.5 ms
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Errors: 7219, accumulated errors: 7458, 58.2% of total requests
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Target URL:          http://localhost:5000/job/d75277cdffef995a46ae59bdaef1db86
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Max time (s):        20
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Concurrency level:   10
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Agent:               none
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Requests per second: 1000
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Completed requests:  12821
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Total errors:        7458
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Total time:          20.004103414 s
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Requests per second: 641
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Mean latency:        5358.2 ms
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO Percentage of the requests served within a certain time
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO   50%      4698 ms
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO   90%      12109 ms
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO   95%      12445 ms
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO   99%      13997 ms
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO  100%      14257 ms (longest request)
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO  100%      14257 ms (longest request)
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:02:23 GMT-0700 (PDT)] INFO    -1:   7458 errors
+
+There are some errors accumulated
+
+3) load test with with fixed rate of rps of 500
+
+SHARMDEY-M-410G:node_modules sharmdey$ loadtest http://localhost:5000/job/d75277cdffef995a46ae59bdaef1db86 -t 20 -c 10 --rps 500
+[Sun Jun 18 2017 23:04:39 GMT-0700 (PDT)] INFO Requests: 0, requests per second: 0, mean latency: 0 ms
+[Sun Jun 18 2017 23:04:44 GMT-0700 (PDT)] INFO Requests: 2262, requests per second: 452, mean latency: 9.4 ms
+[Sun Jun 18 2017 23:04:49 GMT-0700 (PDT)] INFO Requests: 4756, requests per second: 499, mean latency: 11.6 ms
+[Sun Jun 18 2017 23:04:54 GMT-0700 (PDT)] INFO Requests: 6698, requests per second: 382, mean latency: 643.1 ms
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Target URL:          http://localhost:5000/job/d75277cdffef995a46ae59bdaef1db86
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Max time (s):        20
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Concurrency level:   10
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Agent:               none
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Requests per second: 500
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Completed requests:  8322
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Total errors:        0
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Total time:          20.000772464999997 s
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Requests per second: 416
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Mean latency:        542.6 ms
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Percentage of the requests served within a certain time
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO   50%      15 ms
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO   90%      1865 ms
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO   95%      2226 ms
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO   99%      2739 ms
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO  100%      2948 ms (longest request)
+[Sun Jun 18 2017 23:04:59 GMT-0700 (PDT)] INFO Requests: 8322, requests per second: 329, mean latency: 1980.4 ms
+
+
+4)load test with with fixed rate of rps of 800
+
+SHARMDEY-M-410G:node_modules sharmdey$ loadtest http://localhost:5000/job/d75277cdffef995a46ae59bdaef1db86 -t 20 -c 10 --rps 800
+[Sun Jun 18 2017 23:07:13 GMT-0700 (PDT)] INFO Requests: 0, requests per second: 0, mean latency: 0 ms
+[Sun Jun 18 2017 23:07:18 GMT-0700 (PDT)] INFO Requests: 1651, requests per second: 330, mean latency: 935.9 ms
+[Sun Jun 18 2017 23:07:23 GMT-0700 (PDT)] INFO Requests: 2543, requests per second: 178, mean latency: 4384.7 ms
+[Sun Jun 18 2017 23:07:28 GMT-0700 (PDT)] INFO Requests: 4017, requests per second: 295, mean latency: 8243.2 ms
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Target URL:          http://localhost:5000/job/d75277cdffef995a46ae59bdaef1db86
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Max time (s):        20
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Concurrency level:   10
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Agent:               none
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Requests per second: 800
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Completed requests:  5561
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Total errors:        0
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Total time:          20.005965097 s
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Requests per second: 278
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Mean latency:        6218.4 ms
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO Percentage of the requests served within a certain time
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO   50%      7299 ms
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO   90%      11200 ms
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO   95%      12492 ms
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO   99%      12653 ms
+[Sun Jun 18 2017 23:07:33 GMT-0700 (PDT)] INFO  100%      12682 ms (longest request)
+
+It starts accumulating errors if the rps in increased beyond 800 for the GET request.
+
+

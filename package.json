@@ -1,0 +1,19 @@
+{
+    "name": "Massdrop-Challenge",
+    "version": "0.0.1",
+    "author": {
+        "name": "Sharmila Dey"
+    },
+    "dependencies": {
+        "express": "3.4.7",
+        "routes": "0.2.0",
+        "async" : "^2.4.1",
+        "request":"2.34.0",
+        "mongoose" : "^4.10.6",
+        "loadtest": "*"
+    },
+    "main": "./app.js",
+    "scripts": {
+        "start": "node sm_app.js"
+    }
+}
